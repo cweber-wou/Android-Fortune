@@ -6,13 +6,67 @@ public class FORTUNE {
 	private LinkedList <String>verb;
 	private LinkedList <String>adjective;
 	private Random r;
+	private LinkedList <String>color;
+	private LinkedList <String>time;
+	private LinkedList <String>number;
+	
+	private void SetupNumber()
+	{
+		number= new LinkedList<String>();
+		number.add("One");
+		number.add("Two");
+		number.add("Three");
+		number.add("Ten");
+		number.add("Dozen");
+		number.add("Hundreds");
+		number.add("Thousands");
+		number.add("Millions");
+		number.add("Billions");
+		number.add("Trillions");
+		number.add("Twenty");
+		number.add("Fifteen");
+		number.add("Five");
+	}
+	
+	private void SetupTime()
+	{
+		time= new LinkedList<String>();
+		time.add("Hour");
+		time.add("Day");
+		time.add("Week");
+		time.add("Month");
+		time.add("Year");
+		time.add("Half Hour");
+		time.add("Minute");
+		time.add("Second");
+		time.add("Decade");
+		
+	}
+	
+	private void SetupColor()
+	{
+		color= new LinkedList<String>();
+		color.add("Red");
+		color.add("Blue");
+		color.add("Green");
+		color.add("Black");
+		color.add("White");
+		color.add("Grey");
+		color.add("Pink");
+		color.add("Purple");
+		color.add("Brown");
+		color.add("Silver");
+		color.add("Gold");
+		color.add("Yellow");
+		color.add("Orange");
+	}
 	
 	private void SetupNoun()
 	{
 		noun= new LinkedList<String>();
 		noun.add("Brother");
 		noun.add("Sister");
-		noun.add("Profesor");
+		noun.add("Professor");
 		noun.add("Mother");
 		noun.add("Father");
 		noun.add("Cat");
@@ -23,6 +77,12 @@ public class FORTUNE {
 		noun.add("Phone");
 		noun.add("Windows");
 		noun.add("Unix");
+		noun.add("Television");
+		noun.add("Android");
+		noun.add("Xbox");
+		noun.add("PS3");
+		noun.add("Wii");
+		
 	}
 	
 	private void SetupAdverb()
@@ -56,7 +116,7 @@ public class FORTUNE {
 		verb= new LinkedList<String>();
 		verb.add("add");
 		verb.add("admire");
-		verb.add("analyse");
+		verb.add("analyze");
 		verb.add("appear");
 		verb.add("alert");
 		verb.add("arrange");
@@ -158,8 +218,31 @@ public class FORTUNE {
 		SetupAdjective();
 		SetupVerb();
 		SetupAdverb();
+		SetupColor();
+		SetupTime();
+		SetupNumber();
 		r=new Random();
 		
+	}
+	private String getNumber(){
+		int size=number.size();
+		int x = r.nextInt(size);
+		String out = number.get(x);
+		return out;
+	}
+	
+	private String getColor(){
+		int size=color.size();
+		int x = r.nextInt(size);
+		String out = color.get(x);
+		return out;
+	}
+	
+	private String getTime(){
+		int size=time.size();
+		int x = r.nextInt(size);
+		String out = time.get(x);
+		return out;
 	}
 	
 	private String getNoun(){
@@ -189,7 +272,34 @@ public class FORTUNE {
 	
 	public String get() {
 		String out="";
-		out+=getNoun()+ " is "+ getVerb() + " " + getAdverb() + " the " + getAdjective() + " " + getNoun() + ".";
+		int x=r.nextInt(4);
+		switch (x){
+			case 0: out = "Your Luck color is "+getColor()+"";
+				break;
+			case 1: out = "This "+getTime()+" is a good time to "+getVerb()+" your "+getNoun()+"";
+				break;
+			case 2: out = "In the Next "+getTime()+" watch out for "+getColor()+" "+getNoun()+"";
+				break;
+			case 3: out = "Your "+getNoun()+" will "+getVerb()+"";
+			break;
+			case 4: out = "Expect "+getNumber()+" of "+getAdjective()+" "+getNoun()+"s over the next "+getTime()+"";
+			break;
+			case 5: out = "";
+			break;
+			case 6: out = "";
+			break;
+			case 7: out = "";
+			break;
+			case 8: out = "";
+			break;
+			case 9: out = "";
+			break;
+			case 10: out = "";
+			break;
+			
+			
+		}
+		//out+=getNoun()+ " is "+ getVerb() + " " + getAdverb() + " the " + getAdjective() + " " + getNoun() + ".";
 		return out;
 	}
 	

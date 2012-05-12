@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class TestActivity extends Activity implements OnClickListener {
@@ -17,7 +18,7 @@ public class TestActivity extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         x=0;
-      Button button = (Button)findViewById(R.id.btnRun);
+      ImageButton button = (ImageButton)findViewById(R.id.btnRun);
         button.setOnClickListener(this);
         f=new FORTUNE();
     }
