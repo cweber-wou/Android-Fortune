@@ -1,5 +1,7 @@
 package com.test;
 import java.util.*;
+
+import android.content.Context;
 public class FORTUNE {
 	private LinkedList <String>noun;
 	private LinkedList <String>adverb;
@@ -9,6 +11,9 @@ public class FORTUNE {
 	private LinkedList <String>color;
 	private LinkedList <String>time;
 	private LinkedList <String>number;
+	
+	private List<Number> numberList;
+	private NumbersDataSource NumberData;
 	
 	private void SetupNumber()
 	{
@@ -26,6 +31,11 @@ public class FORTUNE {
 		number.add("Twenty");
 		number.add("Fifteen");
 		number.add("Five");
+		numberList=NumberData.getAllNumbers();
+		for (Number n : numberList)
+		{
+			number.add(n.getWord());
+		}
 	}
 	
 	private void SetupTime()
@@ -212,8 +222,8 @@ public class FORTUNE {
 		adjective.add("numerous");
 	}
 
-	public FORTUNE() {
-
+	public FORTUNE(Context context) {
+		NumberData=new NumbersDataSource(context);
 		SetupNoun();
 		SetupAdjective();
 		SetupVerb();
@@ -305,23 +315,23 @@ public class FORTUNE {
 	
 	public static void main(String [] args)
 	{
-		FORTUNE f = new FORTUNE();
-		System.out.println(f.get());
-		System.out.println(f.get());
-		System.out.println(f.get());
-		System.out.println(f.get());
-		System.out.println(f.get());
-		System.out.println(f.get());
-		System.out.println(f.get());
-		System.out.println(f.get());
-		System.out.println(f.get());
-		System.out.println(f.get());
-		System.out.println(f.get());
-		System.out.println(f.get());
-		System.out.println(f.get());
-		System.out.println(f.get());
-		System.out.println(f.get());
-		System.out.println(f.get());
+//		FORTUNE f = new FORTUNE();
+//		System.out.println(f.get());
+//		System.out.println(f.get());
+//		System.out.println(f.get());
+//		System.out.println(f.get());
+//		System.out.println(f.get());
+//		System.out.println(f.get());
+//		System.out.println(f.get());
+//		System.out.println(f.get());
+//		System.out.println(f.get());
+//		System.out.println(f.get());
+//		System.out.println(f.get());
+//		System.out.println(f.get());
+//		System.out.println(f.get());
+//		System.out.println(f.get());
+//		System.out.println(f.get());
+//		System.out.println(f.get());
 	
 	}
 	
