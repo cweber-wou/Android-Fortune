@@ -20,13 +20,13 @@ public class TestActivity extends Activity implements OnClickListener {
         x=0;
       ImageButton button = (ImageButton)findViewById(R.id.btnRun);
         button.setOnClickListener(this);
-        f=new FORTUNE();
+        f=new FORTUNE(this);
     }
 
 	public void onClick(View arg0) {
 		if (arg0==findViewById(R.id.btnRun)){
 		TextView text = (TextView)findViewById(R.id.txtOut);
-		text.setText(f.get()+" : "+Integer.toString(x));
+		text.setText(f.get());
 		x++;}
 		
 	}
